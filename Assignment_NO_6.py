@@ -6,19 +6,15 @@ Roll No - 37
 Assignment Title : Implement and visualize Dependency Parsing of Textual Input using Standford CoreNLP and Spacy library
 
 """
-
 import spacy
 from spacy import displacy
-
 nlp = spacy.load("en_core_web_sm")
-
 multiline_text = """
-I am a Spark Developer 
-Working in Multi National Compony
+vaibhav is Python Developer
+He is good looking
+He is very Famous
 """
-
 multiline_doc = nlp(multiline_text)
-
 for token in multiline_doc:
     print(
         f"""
@@ -31,36 +27,27 @@ TOKEN: {token.text}
 
 displacy.serve(multiline_doc, style="dep")
 
-# OUTPUT -
-
-"""
-
-TOKEN:
+'''
+TTOKEN: 
 
 =====
 token.tag_ = '_SP'
-token.head.text = 'am'
+token.head.text = 'vaibhav'
 token.dep_ = 'dep'
 
-TOKEN: I
+TOKEN: vaibhav
 =====
-token.tag_ = 'PRP'
-token.head.text = 'am'
-token.dep_ = 'nsubj'
-
-TOKEN: am
-=====
-token.tag_ = 'VBP'
-token.head.text = 'am'
+token.tag_ = 'VB'
+token.head.text = 'vaibhav'
 token.dep_ = 'ROOT'
 
-TOKEN: a
+TOKEN: is
 =====
-token.tag_ = 'DT'
-token.head.text = 'Developer'
-token.dep_ = 'det'
+token.tag_ = 'VBZ'
+token.head.text = 'vaibhav'
+token.dep_ = 'auxpass'
 
-TOKEN: Spark
+TOKEN: Python
 =====
 token.tag_ = 'NNP'
 token.head.text = 'Developer'
@@ -69,7 +56,7 @@ token.dep_ = 'compound'
 TOKEN: Developer
 =====
 token.tag_ = 'NNP'
-token.head.text = 'Working'
+token.head.text = 'He'
 token.dep_ = 'compound'
 
 TOKEN:
@@ -79,45 +66,71 @@ token.tag_ = '_SP'
 token.head.text = 'Developer'
 token.dep_ = 'dep'
 
-TOKEN: Working
+TOKEN: He
 =====
-token.tag_ = 'NNP'
-token.head.text = 'am'
-token.dep_ = 'attr'
+token.tag_ = 'PRP'
+token.head.text = 'is'
+token.dep_ = 'nsubj'
 
-TOKEN: in
+TOKEN: is
 =====
-token.tag_ = 'IN'
-token.head.text = 'Working'
-token.dep_ = 'prep'
+token.tag_ = 'VBZ'
+token.head.text = 'is'
+token.dep_ = 'ROOT'
 
-TOKEN: Multi
+TOKEN: good
 =====
-token.tag_ = 'NNP'
-token.head.text = 'Compony'
-token.dep_ = 'compound'
+token.tag_ = 'JJ'
+token.head.text = 'is'
+token.dep_ = 'acomp'
 
-TOKEN: National
+TOKEN: looking
 =====
-token.tag_ = 'NNP'
-token.head.text = 'Compony'
-token.dep_ = 'compound'
-
-TOKEN: Compony
-=====
-token.tag_ = 'NNP'
-token.head.text = 'in'
-token.dep_ = 'pobj'
+token.tag_ = 'VBG'
+token.head.text = 'is'
+token.dep_ = 'xcomp'
 
 TOKEN:
 
 =====
 token.tag_ = '_SP'
-token.head.text = 'Compony'
+token.head.text = 'looking'
+token.dep_ = 'dep'
+
+TOKEN: He
+=====
+token.tag_ = 'PRP'
+token.head.text = 'is'
+token.dep_ = 'nsubj'
+
+TOKEN: is
+=====
+token.tag_ = 'VBZ'
+token.head.text = 'is'
+token.dep_ = 'ROOT'
+
+TOKEN: very
+=====
+token.tag_ = 'RB'
+token.head.text = 'Famous'
+token.dep_ = 'advmod'
+
+TOKEN: Famous
+=====
+token.tag_ = 'JJ'
+token.head.text = 'is'
+token.dep_ = 'acomp'
+
+TOKEN:
+
+=====
+token.tag_ = '_SP'
+token.head.text = 'Famous'
 token.dep_ = 'dep'
 
 Using the 'dep' visualizer
 Serving on http://0.0.0.0:5000 ...
+'''
 
 127.0.0.1 - - [28/Nov/2023 14:39:36] "GET / HTTP/1.1" 200 10912
 127.0.0.1 - - [28/Nov/2023 14:39:36] "GET /favicon.ico HTTP/1.1" 200 10912
