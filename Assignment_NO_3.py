@@ -1,4 +1,3 @@
-
 # Assignment No 3
 # Name - Vaibhav Lokhande
 # Batch - B2
@@ -34,4 +33,8 @@ if __name__ == "__main__":
         print(f"{entity} - {label}")
 
 # OUTPUT -
-
+''' 
+Named Entities:
+John - PERSON
+New York - GPE 
+'''
